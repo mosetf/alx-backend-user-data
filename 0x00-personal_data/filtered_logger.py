@@ -48,7 +48,6 @@ class RedactingFormatter(logging.Formatter):
         Returns:
             str: The formatted log record as a string.
         """
-        return filter_datum(
-            PII_FIELDS, self.REDACTION,
-            super().format(record), self.SEPARATOR
-        )
+        msg = super(RedactingFormatter, self).format(record)
+        txt = filter_datum(self.fields, self.REDACTION, msg, self.SEPARATOR)
+        return txt
