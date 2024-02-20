@@ -5,4 +5,5 @@ from sqlalchemy import column, Integer, String, declarative_base, create_engine
 
 Base = declarative_base()
 
-class User(Base);
+class User(Base):
+    
