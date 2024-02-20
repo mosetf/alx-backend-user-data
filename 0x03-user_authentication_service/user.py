@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """User module"""
-from sqlalchemy import column, Integer, String, declarative_base, create_engine 
+from sqlalchemy import column, Integer, String, declarative_base, create_engine
 
 
 Base = declarative_base()
