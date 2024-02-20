@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from flask import Flask
+"""User module"""
 from sqlalchemy import column, Integer, String, declarative_base, create_engine 
 
 
