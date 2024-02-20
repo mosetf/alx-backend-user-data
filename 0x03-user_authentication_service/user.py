@@ -8,9 +8,8 @@ Base = declarative_base()
 
 
 class User(Base):
-
     """User class"""
-    __tablename__ = 'users'
+    __tablename__ = "users"
     id = column(Integer, primary_key=True)
     email = column(String(250), nullable=False)
     hashed_password = column(String(250), nullable=False)
