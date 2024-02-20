@@ -8,3 +8,4 @@ Base = declarative_base()
 class User(Base):
     __tablename__ = 'users'
     id = column(Integer, primary_key=True)
+    email = column(String(250), nullable=False)
