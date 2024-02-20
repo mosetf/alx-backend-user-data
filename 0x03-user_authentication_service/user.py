@@ -5,7 +5,9 @@ from sqlalchemy import column, Integer, String, declarative_base, create_engine
 
 Base = declarative_base()
 
+
 class User(Base):
+
     """User class"""
     __tablename__ = 'users'
     id = column(Integer, primary_key=True)
