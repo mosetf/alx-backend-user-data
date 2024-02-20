@@ -10,3 +10,4 @@ class User(Base):
     id = column(Integer, primary_key=True)
     email = column(String(250), nullable=False)
     hashed_password = column(String(250), nullable=False)
+    session_id = column(String(250), nullable=True)
