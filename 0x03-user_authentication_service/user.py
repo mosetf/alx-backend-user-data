@@ -1,3 +1,3 @@
 #!/usr/bin/env python3
 from flask import Flask
-import sqlalchemy
+from sqlalchemy import column, Integer, String, create_engine 
