@@ -2,3 +2,4 @@
 """
 App module
 """
+from flask import Flask
