@@ -31,26 +31,25 @@ class DB:
         return self.__session
 
     def add_user(self, email: str, hashed_password: str) -> User:
-            """
-            Adds a new user to the database.
+        """
+        Adds a new user to the database.
 
-            Args:
-                email (str): The email of the user.
-                hashed_password (str): The hashed password of the user.
+        Args:
+            email (str): The email of the user.
+            hashed_password (str): The hashed password of the user.
 
-            Returns:
-                User: The newly created User object.
+        Returns:
+            User: The newly created User object.
 
-            Raises:
-                ValueError: If the email already exists in the database.
-            """
-            
-            existing_user = Session.query(User).filter_by(email=email).first()
-            if existing_user:
-                raise ValueError("Email already exist")
-            
-            new_user = User(email=email, hashed_password=hashed_password)
+        Raises:
+            ValueError: If the email already exists in the database.
+        """
+        existing_user = Session.query(User).filter_by(email=email).first()
+        if existing_user:
+            raise ValueError("Email already exist")
 
-            Session.add(new_user)
-            Session.commit()
-            return new_user
+        new_user = User(email=email, hashed_password=hashed_password)
+
+        Session.add(new_user)
+        Session.commit()
+        return new_user
