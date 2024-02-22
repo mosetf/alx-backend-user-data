@@ -44,12 +44,11 @@ class DB:
         Raises:
             ValueError: If the email already exists in the database.
         """
-        existing_user = Session.query(User).filter_by(email=email).first()
-        if existing_user:
-            raise ValueError("Email already exist")
-
-        new_user = User(email=email, hashed_password=hashed_password)
-
-        Session.add(new_user)
-        Session.commit()
+        try:
+            new_user = User(email=email, hashed_password=hashed_password)
+            self._session.add(new_user)
+            self._session.commit()
+        except Exception:
+            self._session.rollback()
+            new_user = None
         return new_user
