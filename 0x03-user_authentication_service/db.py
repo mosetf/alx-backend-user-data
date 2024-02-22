@@ -31,4 +31,13 @@ class DB:
         return self.__session
 
     def add_user(self, email:str, hashed_password: str) -> User:
-        existing_user = Session.query(U)
+        existing_user = Session.query(User).filter_by(email=email).first()
+        if existing_user:
+            raise ValueError("Email already exist")
+        
+        new_user = User(email=email, hashed_password=hashed_password)
+
+        Session.add(new_user)
+        Session.commit()
+
+        return new_user
